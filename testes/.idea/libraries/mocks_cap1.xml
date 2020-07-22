@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mocks-cap1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mocks-cap1.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
