@@ -18,15 +18,15 @@ public class AprenderCucumberSteps {
 	public void queCrieiOArquivoCorretamente() throws Throwable {
 	}
 
-	@Given("^execut·-lo$")
+	@Given("^executa-lo$")
 	public void execut·Lo() throws Throwable {
 	}
 
-	@Then("^a especificaÁ„o deve finalizar com sucesso$")
+	@Then("^a especificacao deve finalizar com sucesso$")
 	public void aEspecificaÁ„oDeveFinalizarComSucesso() throws Throwable {
 	}
 
-	@When("^que o valor do contador È (\\d+)$")
+	@When("^que o valor do contador e (\\d+)$")
 	public void queOValorDoContador…(int contador) throws Throwable {
 		this.contador = contador;
 		assertEquals(contador, this.contador);
@@ -37,12 +37,12 @@ public class AprenderCucumberSteps {
 		this.contador += valor;
 	}
 
-	@Then("^o valor do contador ser· (\\d+)$")
+	@Then("^o valor do contador sera (\\d+)$")
 	public void oValorDoContadorSer·(int contador) throws Throwable {
 		assertEquals(contador, this.contador);
 	}
 	
-	@When("que o prazo È dia {data}")
+	@When("que o prazo e dia {data}")
 	public void queOPrazo…Dia(Date data) throws Throwable {
 		dataEntrega = data;
 		
@@ -63,7 +63,7 @@ public class AprenderCucumberSteps {
 		dataEntrega = calendar.getTime();
 	}
 
-	@Then("a entrega ser· efetuada em {data}")
+	@Then("a entrega sera efetuada em {data}")
 	public void aEntregaSer·Efetuada_em(Date data) throws Throwable {
 		String dataEntregaFormatada = DataConverterString.converteDataParaString(dataEntrega);
 		String dataParametroFormatada = DataConverterString.converteDataParaString(data);
@@ -71,19 +71,19 @@ public class AprenderCucumberSteps {
 		assertEquals(dataParametroFormatada, dataEntregaFormatada);
 	}
 	
-	@When("^que o ticket( especial)? È (A.\\d{3})$")
+	@When("^que o ticket( especial)? e (A.\\d{3})$")
 	public void queOTicket…AF(String especial, String ticket) throws Throwable {
 	}
 
-	@When("^que o valor da passagem È R\\$ (.*)$")
+	@When("^que o valor da passagem e R\\$ (.*)$")
 	public void queOValorDaPassagem…R$(Double numero) throws Throwable {
 	}
 
-	@When("^que o nome do passageiro È \"(.{5,20})\"$")
+	@When("^que o nome do passageiro e \"(.{5,20})\"$")
 	public void queONomeDoPassageiro…(String arg1) throws Throwable {
 	}
 
-	@When("^que o telefone do passageiro È (9\\d{3}-\\d{4})$")
+	@When("^que o telefone do passageiro e (9\\d{3}-\\d{4})$")
 	public void queOTelefoneDoPassageiro…(String telefone) throws Throwable {
 	}
 
