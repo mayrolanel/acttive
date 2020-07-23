@@ -19,15 +19,15 @@ public class AprenderCucumberSteps {
 	}
 
 	@Given("^executa-lo$")
-	public void execut·Lo() throws Throwable {
+	public void executaLo() throws Throwable {
 	}
 
 	@Then("^a especificacao deve finalizar com sucesso$")
-	public void aEspecificaÁ„oDeveFinalizarComSucesso() throws Throwable {
+	public void aEspecificacaooDeveFinalizarComSucesso() throws Throwable {
 	}
 
 	@When("^que o valor do contador e (\\d+)$")
-	public void queOValorDoContador…(int contador) throws Throwable {
+	public void queOValorDoContadorE(int contador) throws Throwable {
 		this.contador = contador;
 		assertEquals(contador, this.contador);
 	}
@@ -38,12 +38,12 @@ public class AprenderCucumberSteps {
 	}
 
 	@Then("^o valor do contador sera (\\d+)$")
-	public void oValorDoContadorSer·(int contador) throws Throwable {
+	public void oValorDoContadorSera(int contador) throws Throwable {
 		assertEquals(contador, this.contador);
 	}
 	
 	@When("que o prazo e dia {data}")
-	public void queOPrazo…Dia(Date data) throws Throwable {
+	public void queOPrazoEDia(Date data) throws Throwable {
 		dataEntrega = data;
 		
 		System.out.println("DATA ENTREGA- "+dataEntrega);
@@ -64,7 +64,7 @@ public class AprenderCucumberSteps {
 	}
 
 	@Then("a entrega sera efetuada em {data}")
-	public void aEntregaSer·Efetuada_em(Date data) throws Throwable {
+	public void aEntregaSeraEfetuada_em(Date data) throws Throwable {
 		String dataEntregaFormatada = DataConverterString.converteDataParaString(dataEntrega);
 		String dataParametroFormatada = DataConverterString.converteDataParaString(data);
 		
@@ -72,19 +72,19 @@ public class AprenderCucumberSteps {
 	}
 	
 	@When("^que o ticket( especial)? e (A.\\d{3})$")
-	public void queOTicket…AF(String especial, String ticket) throws Throwable {
+	public void queOTicketEAF(String especial, String ticket) throws Throwable {
 	}
 
 	@When("^que o valor da passagem e R\\$ (.*)$")
-	public void queOValorDaPassagem…R$(Double numero) throws Throwable {
+	public void queOValorDaPassagemER$(Double numero) throws Throwable {
 	}
 
 	@When("^que o nome do passageiro e \"(.{5,20})\"$")
-	public void queONomeDoPassageiro…(String arg1) throws Throwable {
+	public void queONomeDoPassageiroE(String arg1) throws Throwable {
 	}
 
 	@When("^que o telefone do passageiro e (9\\d{3}-\\d{4})$")
-	public void queOTelefoneDoPassageiro…(String telefone) throws Throwable {
+	public void queOTelefoneDoPassageiroE(String telefone) throws Throwable {
 	}
 
 	@Given("^criar os steps$")
