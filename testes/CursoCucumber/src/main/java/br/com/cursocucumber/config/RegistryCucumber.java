@@ -25,7 +25,7 @@ public class RegistryCucumber implements TypeRegistryConfigurer {
 				dataFormatada = dateFormat.parse(s);
 				return dataFormatada;
 			} catch (ParseException e) {
-				return null;
+				return null; 
 			}
 		}));
 	}

@@ -1,176 +1,30 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/alugar_filme.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/inserir_conta.feature");
 formatter.feature({
-  "name": "Alugar filme",
-  "description": "\tComo um usuário\n\tEu quero cadastrar aluguéis de fillmes\n\tPara controlar preços e datas de entrega",
+  "name": "Cadastro de contas",
+  "description": "\tComo um usuário \n\tGostaria de cadastrar contas\n\tPara que eu possa distribuir meu dinheiro de uma forma mais organizada",
   "keyword": "Feature",
   "tags": [
     {
-      "name": "@unitários"
+      "name": "@funcionais"
     }
   ]
-});
-formatter.scenario({
-  "name": "Deve alugar um filme com sucesso",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "um filme",
-  "rows": [
-    {
-      "cells": [
-        "estoque",
-        "2"
-      ]
-    },
-    {
-      "cells": [
-        "preco",
-        "3"
-      ]
-    },
-    {
-      "cells": [
-        "tipo",
-        "comum"
-      ]
-    }
-  ],
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.umFilme(DataTable)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "alugar",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.alugar()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o preço do aluguel será R$ 3",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.oPreçoDoAluguelSeráR$(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a data de entrega será em 1 dia",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.aDataDeEntregaSeráEmDias(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o estoque do filme será 1 unidade",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.oEstoqueDoFilmeSeráUnidade(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Não deve alugar um filme sem estoque",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "um filme com estoque de 0 unidades",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.umFilmeComEstoqueDeUnidades(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "alugar",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.alugar()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "não será possível por falta de estoque",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.nãoSeráPossívelPorFaltaDeEstoque()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o estoque do filme será 0 unidade",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.oEstoqueDoFilmeSeráUnidade(int)"
-});
-formatter.result({
-  "status": "passed"
 });
 formatter.scenarioOutline({
-  "name": "Deve dar condições conforme tipo de aluguel",
+  "name": "Deve validar regras cadastro contas",
   "description": "",
   "keyword": "Scenario Outline"
 });
 formatter.step({
-  "name": "um filme com estoque de 2 unidades",
-  "keyword": "When "
+  "name": "informo a conta \"\u003cconta\u003e\"",
+  "keyword": "Given "
 });
 formatter.step({
-  "name": "que o preço de alguel seja R$ \u003cpreco\u003e",
-  "keyword": "When "
+  "name": "seleciono Salvar",
+  "keyword": "And "
 });
 formatter.step({
-  "name": "que o tipo do aluguel seja \u003ctipo\u003e",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "alugar",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "o preço do aluguel será R$ \u003cvalor\u003e",
+  "name": "recebo a mensagem \"\u003cmensagem\u003e\"",
   "keyword": "Then "
-});
-formatter.step({
-  "name": "a data de entrega será em \u003cqtdDias\u003e dias",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "a pontuação recebida será de \u003cpontuacao\u003e pontos",
-  "keyword": "When "
 });
 formatter.examples({
   "name": "",
@@ -179,621 +33,400 @@ formatter.examples({
   "rows": [
     {
       "cells": [
-        "preco",
-        "tipo",
-        "valor",
-        "qtdDias",
-        "pontuacao"
+        "conta",
+        "mensagem"
       ]
     },
     {
       "cells": [
-        "4",
-        "extendido",
-        "8",
-        "3",
-        "2"
+        "Conta de teste",
+        "Conta adicionada com sucesso!"
       ]
     },
     {
       "cells": [
-        "4",
-        "comum",
-        "4",
-        "1",
-        "1"
+        "",
+        "Informe o nome da conta"
       ]
     },
     {
       "cells": [
-        "5",
-        "semanal",
-        "15",
-        "7",
-        "3"
+        "Conta mesmo nome",
+        "Já existe uma conta com esse nome!"
       ]
     }
   ]
 });
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.step({
+  "name": "que estou acessando a aplicação",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "InserirContasSteps.queEstouAcessandoAAplicação()"
+});
+formatter.result({
+  "error_message": "java.lang.IllegalStateException: The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html\r\n\tat com.google.common.base.Preconditions.checkState(Preconditions.java:847)\r\n\tat org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:124)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)\r\n\tat org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:123)\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.queEstouAcessandoAAplicação(InserirContasSteps.java:28)\r\n\tat ✽.que estou acessando a aplicação(file:src/test/resources/features/inserir_conta.feature:8)\r\n",
+  "status": "failed"
+});
+formatter.step({
+  "name": "informo o usuário \"renato.silva.55@hotmail.com\"",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "InserirContasSteps.informoOUsuário(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "a senha \"aaa\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.aSenha(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono entrar",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoEntrar()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "visualizo a página inicial",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "InserirContasSteps.visualizoAPáginaInicial()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono Contas",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoContas()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono Adicionar",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoAdicionar()"
+});
+formatter.result({
+  "status": "skipped"
+});
 formatter.scenario({
-  "name": "Deve dar condições conforme tipo de aluguel",
+  "name": "Deve validar regras cadastro contas",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@unitários"
+      "name": "@funcionais"
     }
   ]
 });
 formatter.step({
-  "name": "um filme com estoque de 2 unidades",
-  "keyword": "When "
+  "name": "informo a conta \"Conta de teste\"",
+  "keyword": "Given "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.umFilmeComEstoqueDeUnidades(int)"
+  "location": "InserirContasSteps.informoAConta(String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-  "name": "que o preço de alguel seja R$ 4",
-  "keyword": "When "
+  "name": "seleciono Salvar",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.queOPreçoDeAlguelSejaR$(int)"
+  "location": "InserirContasSteps.selecionoSalvar()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-  "name": "que o tipo do aluguel seja extendido",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.queOTipoDoAluguelSejaExtendido(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "alugar",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.alugar()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o preço do aluguel será R$ 8",
+  "name": "recebo a mensagem \"Conta adicionada com sucesso!\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.oPreçoDoAluguelSeráR$(int)"
+  "location": "InserirContasSteps.receboAMensagem(String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
+});
+formatter.after({
+  "error_message": "java.lang.NullPointerException\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.screenshot(InserirContasSteps.java:105)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:65)\r\n\tat cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:50)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:50)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:144)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:174)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)\r\n",
+  "status": "failed"
+});
+formatter.after({
+  "error_message": "java.lang.NullPointerException\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.closeBrowser(InserirContasSteps.java:115)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:65)\r\n\tat cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:50)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:50)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:144)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:174)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)\r\n",
+  "status": "failed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
 });
 formatter.step({
-  "name": "a data de entrega será em 3 dias",
+  "name": "que estou acessando a aplicação",
   "keyword": "When "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.aDataDeEntregaSeráEmDias(int)"
+  "location": "InserirContasSteps.queEstouAcessandoAAplicação()"
 });
 formatter.result({
-  "status": "passed"
+  "error_message": "java.lang.IllegalStateException: The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html\r\n\tat com.google.common.base.Preconditions.checkState(Preconditions.java:847)\r\n\tat org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:124)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)\r\n\tat org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:123)\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.queEstouAcessandoAAplicação(InserirContasSteps.java:28)\r\n\tat ✽.que estou acessando a aplicação(file:src/test/resources/features/inserir_conta.feature:8)\r\n",
+  "status": "failed"
 });
 formatter.step({
-  "name": "a pontuação recebida será de 2 pontos",
-  "keyword": "When "
+  "name": "informo o usuário \"renato.silva.55@hotmail.com\"",
+  "keyword": "Given "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.aPontuaçãoRecebidaSeráDePontos(int)"
+  "location": "InserirContasSteps.informoOUsuário(String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
+});
+formatter.step({
+  "name": "a senha \"aaa\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.aSenha(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono entrar",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoEntrar()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "visualizo a página inicial",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "InserirContasSteps.visualizoAPáginaInicial()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono Contas",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoContas()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono Adicionar",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoAdicionar()"
+});
+formatter.result({
+  "status": "skipped"
 });
 formatter.scenario({
-  "name": "Deve dar condições conforme tipo de aluguel",
+  "name": "Deve validar regras cadastro contas",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@unitários"
+      "name": "@funcionais"
     }
   ]
 });
 formatter.step({
-  "name": "um filme com estoque de 2 unidades",
-  "keyword": "When "
+  "name": "informo a conta \"\"",
+  "keyword": "Given "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.umFilmeComEstoqueDeUnidades(int)"
+  "location": "InserirContasSteps.informoAConta(String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-  "name": "que o preço de alguel seja R$ 4",
-  "keyword": "When "
+  "name": "seleciono Salvar",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.queOPreçoDeAlguelSejaR$(int)"
+  "location": "InserirContasSteps.selecionoSalvar()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-  "name": "que o tipo do aluguel seja comum",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.queOTipoDoAluguelSejaExtendido(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "alugar",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.alugar()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o preço do aluguel será R$ 4",
+  "name": "recebo a mensagem \"Informe o nome da conta\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.oPreçoDoAluguelSeráR$(int)"
+  "location": "InserirContasSteps.receboAMensagem(String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
+});
+formatter.after({
+  "error_message": "java.lang.NullPointerException\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.screenshot(InserirContasSteps.java:105)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:65)\r\n\tat cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:50)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:50)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:144)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:174)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)\r\n",
+  "status": "failed"
+});
+formatter.after({
+  "error_message": "java.lang.NullPointerException\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.closeBrowser(InserirContasSteps.java:115)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:65)\r\n\tat cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:50)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:50)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:144)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:174)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)\r\n",
+  "status": "failed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
 });
 formatter.step({
-  "name": "a data de entrega será em 1 dias",
+  "name": "que estou acessando a aplicação",
   "keyword": "When "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.aDataDeEntregaSeráEmDias(int)"
+  "location": "InserirContasSteps.queEstouAcessandoAAplicação()"
 });
 formatter.result({
-  "status": "passed"
+  "error_message": "java.lang.IllegalStateException: The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html\r\n\tat com.google.common.base.Preconditions.checkState(Preconditions.java:847)\r\n\tat org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:124)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)\r\n\tat org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)\r\n\tat org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:123)\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.queEstouAcessandoAAplicação(InserirContasSteps.java:28)\r\n\tat ✽.que estou acessando a aplicação(file:src/test/resources/features/inserir_conta.feature:8)\r\n",
+  "status": "failed"
 });
 formatter.step({
-  "name": "a pontuação recebida será de 1 pontos",
-  "keyword": "When "
+  "name": "informo o usuário \"renato.silva.55@hotmail.com\"",
+  "keyword": "Given "
 });
 formatter.match({
-  "location": "AlugarFilmeSteps.aPontuaçãoRecebidaSeráDePontos(int)"
+  "location": "InserirContasSteps.informoOUsuário(String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
+});
+formatter.step({
+  "name": "a senha \"aaa\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.aSenha(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono entrar",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoEntrar()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "visualizo a página inicial",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "InserirContasSteps.visualizoAPáginaInicial()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono Contas",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoContas()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "seleciono Adicionar",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoAdicionar()"
+});
+formatter.result({
+  "status": "skipped"
 });
 formatter.scenario({
-  "name": "Deve dar condições conforme tipo de aluguel",
+  "name": "Deve validar regras cadastro contas",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@unitários"
+      "name": "@funcionais"
     }
   ]
 });
 formatter.step({
-  "name": "um filme com estoque de 2 unidades",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.umFilmeComEstoqueDeUnidades(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o preço de alguel seja R$ 5",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.queOPreçoDeAlguelSejaR$(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o tipo do aluguel seja semanal",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.queOTipoDoAluguelSejaExtendido(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "alugar",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.alugar()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o preço do aluguel será R$ 15",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.oPreçoDoAluguelSeráR$(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a data de entrega será em 7 dias",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.aDataDeEntregaSeráEmDias(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a pontuação recebida será de 3 pontos",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AlugarFilmeSteps.aPontuaçãoRecebidaSeráDePontos(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.uri("file:src/test/resources/features/aprender_cucumber.feature");
-formatter.feature({
-  "name": "Aprender cucumber",
-  "description": "\tComo aluno\n\tEu quero aprender a utilizar cucumber\n\tPara que eu possa automatizar critérios de aceitação",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.scenario({
-  "name": "Deve executar espeficicação",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "que criei o arquivo corretamente",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queCrieiOArquivoCorretamente()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "executá-lo",
+  "name": "informo a conta \"Conta mesmo nome\"",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "AprenderCucumberSteps.executáLo()"
+  "location": "InserirContasSteps.informoAConta(String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-  "name": "a especificação deve finalizar com sucesso",
+  "name": "seleciono Salvar",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "InserirContasSteps.selecionoSalvar()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "recebo a mensagem \"Já existe uma conta com esse nome!\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "AprenderCucumberSteps.aEspecificaçãoDeveFinalizarComSucesso()"
+  "location": "InserirContasSteps.receboAMensagem(String)"
 });
 formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Deve incrementar contador",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "que o valor do contador é 15",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOValorDoContadorÉ(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "eu incrementar em 3",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.euIncrementarEm(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o valor do contador será 18",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.oValorDoContadorSerá(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Deve incrementar contador",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "que o valor do contador é 123",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOValorDoContadorÉ(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "eu incrementar em 35",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.euIncrementarEm(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o valor do contador será 158",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.oValorDoContadorSerá(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Deve calcular atraso no prazo de entrega",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "que o prazo é dia 05/04/2018",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOPrazoÉDia(Date)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a entrega atrasar em 2 dias",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.aEntregaAtrasarEmDias(int,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a entrega será efetuada em 07/04/2018",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.aEntregaSeráEfetuada_em(Date)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Deve calcular atraso no prazo de entrega da China",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "que o prazo é dia 05/04/2018",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOPrazoÉDia(Date)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a entrega atrasar em 2 meses",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.aEntregaAtrasarEmDias(int,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a entrega será efetuada em 05/06/2018",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.aEntregaSeráEfetuada_em(Date)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Deve criar steps genéricos para estes passos",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "que o ticket é AF345",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOTicketÉAF(String,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o valor da passagem é R$ 230,45",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOValorDaPassagemÉR$(Double)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o nome do passageiro é \"Fulano da Silva\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queONomeDoPassageiroÉ(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o telefone do passageiro é 9999-9999",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOTelefoneDoPassageiroÉ(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "criar os steps",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.criarOsSteps()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o teste vai funcionar",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.oTesteVaiFuncionar()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Deve reaproveitar os steps \"Dado\" do cenário anterior",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@unitários"
-    }
-  ]
-});
-formatter.step({
-  "name": "que o ticket é AB167",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOTicketÉAF(String,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o ticket especial é AB167",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOTicketÉAF(String,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o valor da passagem é R$ 1120,23",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOValorDaPassagemÉR$(Double)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o nome do passageiro é \"Cicrano de Oliveira\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queONomeDoPassageiroÉ(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "que o telefone do passageiro é 9888-8888",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "AprenderCucumberSteps.queOTelefoneDoPassageiroÉ(String)"
-});
-formatter.result({
-  "status": "passed"
+  "status": "skipped"
+});
+formatter.after({
+  "error_message": "java.lang.NullPointerException\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.screenshot(InserirContasSteps.java:105)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:65)\r\n\tat cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:50)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:50)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:144)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:174)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)\r\n",
+  "status": "failed"
+});
+formatter.after({
+  "error_message": "java.lang.NullPointerException\r\n\tat br.com.cursocucumber.test.steps.InserirContasSteps.closeBrowser(InserirContasSteps.java:115)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:65)\r\n\tat cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:50)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:50)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:144)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:174)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)\r\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)\r\n\tat org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)\r\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)\r\n",
+  "status": "failed"
 });
 });
