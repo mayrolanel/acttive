@@ -24,7 +24,7 @@ public class InserirContasSteps {
 	
 	@When("^que estou acessando a aplicação$")
 	public void queEstouAcessandoAAplicação() throws Throwable {
-		System.setProperty("webdriver.chrome.driver", "/home/vsts/work/1/s/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "*/src/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		
 		driver.get("https://srbarriga.herokuapp.com");
