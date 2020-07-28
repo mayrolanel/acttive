@@ -22,16 +22,16 @@ public class InserirContasSteps {
 
 	private WebDriver driver;
 	
-	@When("^que estou acessando a aplicação$")
-	public void queEstouAcessandoAAplicação() throws Throwable {
+	@When("^que estou acessando a aplicacao$")
+	public void queEstouAcessandoAAplicacao() throws Throwable {
 		System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		
 		driver.get("https://srbarriga.herokuapp.com");
 	}
 
-	@Given("^informo o usuário \"([^\"]*)\"$")
-	public void informoOUsuário(String usuarioAcesso) throws Throwable {
+	@Given("^informo o usuario \"([^\"]*)\"$")
+	public void informoOUsuario(String usuarioAcesso) throws Throwable {
 		driver.findElement(By.id("email")).sendKeys(usuarioAcesso);;
 	}
 
@@ -45,8 +45,8 @@ public class InserirContasSteps {
 		driver.findElement(By.tagName("button")).click();
 	}
 
-	@Then("^visualizo a página inicial$")
-	public void visualizoAPáginaInicial() throws Throwable {
+	@Then("^visualizo a pagina inicial$")
+	public void visualizoAPaginaInicial() throws Throwable {
 		String texto = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
 		
 		assertEquals("Bem vindo, renato!", texto);
@@ -72,22 +72,22 @@ public class InserirContasSteps {
 		driver.findElement(By.tagName("button")).click();
 	}
 
-	@Then("^a conta é inserida com sucesso$")
-	public void aContaÉInseridaComSucesso() throws Throwable {
+	@Then("^a conta e inserida com sucesso$")
+	public void aContaEInseridaComSucesso() throws Throwable {
 		String texto = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
 		
 		assertEquals("Conta adicionada com sucesso!", texto);
 	}
 	
-	@Then("^sou notificado que o nome da conta é obrigatório$")
-	public void souNotificadoQueONomeDaContaÉObrigatório() throws Throwable {
+	@Then("^sou notificado que o nome da conta e obrigatorio$")
+	public void souNotificadoQueONomeDaContaEObrigatorio() throws Throwable {
 		String texto = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
 		
 		assertEquals("Informe o nome da conta", texto);
 	}
 	
-	@Then("^sou notificado que já existe uma conta com esse nome$")
-	public void souNotificadoQueJáExisteUmaContaComEsseNome() throws Throwable {
+	@Then("^sou notificado que ja existe uma conta com esse nome$")
+	public void souNotificadoQueJaExisteUmaContaComEsseNome() throws Throwable {
 		String texto = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
 		
 		assertEquals("Já existe uma conta com esse nome!", texto);
