@@ -28,8 +28,8 @@ public class AlugarFilmeSteps {
 		filme.setEstoque(qtdEstoque);
 	}
 
-	@Given("^que o preço de aluguel seja R\\$ (\\d+)$")
-	public void queOPreçoDeAluguelSejaR$(int valorAluguel) throws Throwable {
+	@Given("^que o preco de aluguel seja R\\$ (\\d+)$")
+	public void queOPrecoDeAluguelSejaR$(int valorAluguel) throws Throwable {
 		filme.setAluguel(valorAluguel);
 	}
 
@@ -52,23 +52,23 @@ public class AlugarFilmeSteps {
 		}
 	}
 
-	@Then("^o preço do aluguel será R\\$ (\\d+)$")
-	public void oPreçoDoAluguelSeráR$(int precoAluguel) throws Throwable {
+	@Then("^o preco do aluguel sera R\\$ (\\d+)$")
+	public void oPrecoDoAluguelSeraR$(int precoAluguel) throws Throwable {
 		assertEquals(precoAluguel, notaAluguel.getPrecoAluguel());
 	}
 
-	@Given("^o estoque do filme será (\\d+) unidade$")
-	public void oEstoqueDoFilmeSeráUnidade(int qtdEstoque) throws Throwable {
+	@Given("^o estoque do filme sera (\\d+) unidade$")
+	public void oEstoqueDoFilmeSeraUnidade(int qtdEstoque) throws Throwable {
 		assertEquals(qtdEstoque, filme.getEstoque());
 	}
 	
-	@Then("^não será possível por falta de estoque$")
-	public void nãoSeráPossívelPorFaltaDeEstoque() throws Throwable {
+	@Then("^não sera possivel por falta de estoque$")
+	public void nãoSeraPossivelPorFaltaDeEstoque() throws Throwable {
 		assertEquals("Filme sem estoque", erro);
 	}
 	
-	@When("^que o preço de alguel seja R\\$ (\\d+)$")
-	public void queOPreçoDeAlguelSejaR$(int precoAluguel) throws Throwable {
+	@When("^que o preco de alguel seja R\\$ (\\d+)$")
+	public void queOPrecoDeAlguelSejaR$(int precoAluguel) throws Throwable {
 		filme.setAluguel(precoAluguel);
 	}
 
@@ -77,16 +77,16 @@ public class AlugarFilmeSteps {
 		tipoAluguel = tipo.equals("comum") ? TipoAluguel.COMUM : tipo.equals("extendido") ? TipoAluguel.EXTENDIDO : TipoAluguel.SEMANAL;
 	}
 
-	@When("^a data de entrega será em (\\d+) dias?$")
-	public void aDataDeEntregaSeráEmDias(int dia) throws Throwable {
+	@When("^a data de entrega sera em (\\d+) dias?$")
+	public void aDataDeEntregaSeraEmDias(int dia) throws Throwable {
 		String dataEsperada = DateUtils.obterDataConvertidaParaString(DateUtils.obterDataDiferencaDias(dia));
 		String dataEntrega = DateUtils.obterDataConvertidaParaString(notaAluguel.getDataEntrega());
 		
 		assertEquals(dataEsperada, dataEntrega);
 	}
 
-	@When("^a pontuação recebida será de (\\d+) pontos$")
-	public void aPontuaçãoRecebidaSeráDePontos(int pontuacao) throws Throwable {
+	@When("^a pontuacao recebida sera de (\\d+) pontos$")
+	public void aPontuacaoRecebidaSeraDePontos(int pontuacao) throws Throwable {
 		assertEquals(pontuacao, notaAluguel.getPontuacao());
 	}
 }
